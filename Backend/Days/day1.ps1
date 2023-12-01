@@ -28,14 +28,17 @@ function ConcatFirstAndLastDigit($integers) {
     return $integers[0] + $integers[-1]
 }
 
-$s = DefaultParser($input)
-$outerSum = 0
-foreach($line in $s) {
-    $integers = NumberCollector($line)
-    $outerSum += ConcatFirstAndLastDigit($integers)
+function AnswerProblem1($s) {
+    $outerSum = 0
+    foreach($line in $s) {
+        $integers = NumberCollector($line)
+        $outerSum += ConcatFirstAndLastDigit($integers)
+    }
+    return $outerSum
 }
 
-Write-Output "Problem 1: "$outerSum
+$s = DefaultParser($input)
+Write-Output "Problem 1: "AnswerProblem1($s)
 
 $input2 = "two1nine
 eightwothree
@@ -54,3 +57,4 @@ foreach($line in $s) {
 }
 
 Write-Output "Problem 2: "$outerSum2
+ 
